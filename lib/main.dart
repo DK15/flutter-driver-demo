@@ -45,29 +45,67 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 textAlign: TextAlign.center,
               ),
+              TextField(
+                key: Key('passKeyString'),
+                decoration: InputDecoration(
+                  hintText: 'Enter Password Here',
+                ),
+                textAlign: TextAlign.center,
+              ),
               Padding(
                 padding: EdgeInsets.only(top: 15.0),
                 child: RaisedButton(
                   key: Key('button'),
-                  child: Text('Click Here'),
-                  onPressed: () {},
-                )
-              )
-            ],
-          ),
-        ),
-        bottomNavigationBar: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(bottom: 8.0),
-              child: Text('Scroll till here', key: Key('text'), style: TextStyle(
-                  fontSize: 18.0
-              ),
-              )
+                  child: Text('Login'),
+                  onPressed: ()
+    {
+    //  _showDialog();
+    Navigator.push(
+    context, MaterialPageRoute(
+    builder:
+    (context) => NextScreen()));
+    }
+                    )
+    )
+    ]
+    )
+    )
+    );// This trailing comma makes auto-formatting nicer for build methods.
+  }
+
+  Widget _showDialog() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          key: Key('alertDialog'),
+          title: Text('Login', key: Key('AlertTitle'),),
+          content: Text('Login successful', key: Key('AlertBody'),),
+          actions: <Widget>[
+            FlatButton(
+              key: Key('alertButton'),
+              child: Text('Ok'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
             )
           ],
-        ),
-      ); // This trailing comma makes auto-formatting nicer for build methods.
+        );
+      }
+    );
+  }
+}
+
+class NextScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(
+        key: Key('nextScreenKey'),
+        title: Text('Next Screen'),
+      ),
+    );
   }
 }
