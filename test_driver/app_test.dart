@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:glob/glob.dart';
 import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'steps/steps.dart';
+import 'package:gherkin/gherkin.dart';
 
 Future<void> main() {
   final config = FlutterTestConfiguration()
